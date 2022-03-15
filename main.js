@@ -22,7 +22,7 @@ const cartRouter=require('./routes/CartRouter');
 const orderRouter=require('./routes/OrderRouter');
 
 
-mongoose.connect("mongodb+srv://jitu:jitu@123@cluster0.5msi4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://jitu:jitu%40123@cluster0.5msi4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 .then(()=>{
     app.use("/admin",adminRouter);
     app.use("/admin/category",categoryRouter);
