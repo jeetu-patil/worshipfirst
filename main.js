@@ -22,7 +22,7 @@ const cartRouter=require('./routes/CartRouter');
 const orderRouter=require('./routes/OrderRouter');
 const console = require('console');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 
 mongoose.connect("mongodb+srv://jitu:jitu%40123@cluster0.5msi4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
