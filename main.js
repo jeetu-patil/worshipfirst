@@ -20,9 +20,10 @@ const adminRouter=require('./routes/admin/AdminRouter');
 const userRouter=require('./routes/user/UserRouter');
 const cartRouter=require('./routes/CartRouter');
 const orderRouter=require('./routes/OrderRouter');
+const console = require('console');
 
 
-mongoose.connect("mongodb+srv://jitu:jitu%40123%40cluster0.5msi4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://jitu:jitu%40123@cluster0.5msi4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 //mongoose.connect("mongodb://localhost:27017/worshipfirst")
 .then(()=>{
     app.use("/admin",adminRouter);
@@ -40,11 +41,6 @@ mongoose.connect("mongodb+srv://jitu:jitu%40123%40cluster0.5msi4.mongodb.net/myF
 .catch(err => {
     console.log(err);
 });
-
-
-
-
-
 
 
 app.listen(3000,()=>{

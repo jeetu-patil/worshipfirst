@@ -1,6 +1,7 @@
 const Priest=require("../../model/Priest");
 const Order=require("../../model/Order");
-const OrderHistory=require("../../model/orderHistory");
+const OrderHistory=require("../../model/OrderHistory");
+const Admin=require("../../model/Admin");
 
 
 exports.viewPrist=(request,response) => {
@@ -73,9 +74,9 @@ exports.orederDelivered = (request,response)=>{
         }    
     )
     .then(result => {
-        Order.findOne({_id:id})
+        Order.findOne({_id:request.params.id})
         .then(result => {
-            console.log(result);
+            console.log("RESULT : "+result);
             OrderHistory.create({
                 order_add:result.order_add,
                 order_date:Date.now(),
@@ -93,12 +94,36 @@ exports.orederDelivered = (request,response)=>{
                 })
             })
             .catch(err => {
-                return response.status(500).json(err);
+               console.error(err);
             });
         })
         .ctach(err => {
-            return response.status(500).json(err);
+           console.error(err);
         });
+    })
+    .catch(err => {
+        return response.status(500).json(err);
+    });
+}
+
+
+exports.orderHistory=(request,response) => {
+    OrderHistory.find()
+    .then(result => {
+        return response.status(200).json(result);
+    })
+    .catch(err => {
+        return response.status(500).json(err);
+    });
+}
+
+exports.signIn=(request,response) => {
+    Admin.findOne({email:request.body.email,password:request.body.password})
+    .then(result => {
+        if(result)
+            return response.status(200).json(result);
+        else
+            return response.status(200).json({msg:"Please Enter Valid Email And Password"});
     })
     .catch(err => {
         return response.status(500).json(err);

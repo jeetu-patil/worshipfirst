@@ -10,6 +10,7 @@ router.get("/allorders",adminController.allOrders);
 router.get("/oredershipped/:id",adminController.orederShipped);
 router.get("/orederdelivered/:id",adminController.orederDelivered);
 
+router.get("/orderhistory",adminController.orderHistory);
 
-
+router.post("/signin",adminController.signIn);
 module.exports=router;

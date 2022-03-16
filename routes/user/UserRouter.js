@@ -24,6 +24,13 @@ router.get("/allcategories",userController.allCategories);
 router.get("/allitemsbycategory/:id",userController.allItemsByCategory);
 
 router.get("/myorders/:id",userController.myOrder);
+router.get("/orderhistory/:id",userController.orderhistory);
+
+router.get("/cancelorder/:id",userController.cancelOrder);
+
+router.post("/editprofilephoto",upload.single("user_image"),userController.editProfilePhoto);
+router.post("/editprofile",userController.editProfile);
+router.get("/deleteprofile/:id",userController.deleteProfile);
 
 
 

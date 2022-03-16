@@ -31,7 +31,7 @@ exports.viewItem = function(request,response) {
 
 exports.deleteItem = function(request,response) {
     Item.deleteOne({_id:request.params.item_id})
-    .then((result) => {
+    .then((result) => { 
         return response.status(200).json(result);
     })
     .catch((err) => {
@@ -60,4 +60,16 @@ exports.editItem= function(request,response) {
         .catch((err) => {
             return response.status(500).json(err);
         });
+}
+
+exports.commentSection= function(request,response) {
+    Item.findOne({_id:request.body.id})
+    .then((item) => {
+        item.item_comment.push({user:request.body.user,text:request.body.text});
+        item.save();
+        return response.status(200).json({msg:"Comment updated"});
+    })
+    .catch((err) => {
+        return response.status(500).json(err);
+    });
 }

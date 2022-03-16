@@ -18,5 +18,7 @@ router.post("/add",upload.single("media_file"),mediaController.addMedia);
 router.get("/viewmedia",mediaController.viewMedia);
 router.get("/deletemedia/:media_id",mediaController.deleteMedia);
 
+router.post("/comment",mediaController.commentSection);
+
 
 module.exports =router;
