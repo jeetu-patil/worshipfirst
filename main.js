@@ -22,6 +22,8 @@ const cartRouter=require('./routes/CartRouter');
 const orderRouter=require('./routes/OrderRouter');
 const console = require('console');
 
+const PORT = process.env.PORT || 3000;
+
 
 mongoose.connect("mongodb+srv://jitu:jitu%40123@cluster0.5msi4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 //mongoose.connect("mongodb://localhost:27017/worshipfirst")
@@ -43,6 +45,6 @@ mongoose.connect("mongodb+srv://jitu:jitu%40123@cluster0.5msi4.mongodb.net/myFir
 });
 
 
-app.listen(3000,()=>{
+app.listen(PORT, ()=>{
     console.log("server Started At Port : 3000");
 });
